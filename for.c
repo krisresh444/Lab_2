@@ -2,21 +2,21 @@
 #include <math.h>
 
 int main(){
-    float h;
+    double h;
     FILE *my_graph;
     printf("Enter h: ");
-    scanf("%f",&h);
+    scanf("%le",&h);
     my_graph = fopen("my_graph.txt","w");
-        for (float x=0;x<=2;x+=h)
+        for (double x=0;x<=2;x+=h)
         {
         if (x<=1)
         {
-            fprintf(my_graph,"%f\t%f\n",x,(pow(x,2)*atan(x)));
+            fprintf(my_graph,"%f\t%f\n",x,trunc(pow(x,2)*atan(x)));
             printf("%f\t%f\n",x,(pow(x,2)*atan(x)));
         }
         else
         {
-            fprintf(my_graph,"%f\t%f\n",x,sin(1/pow(x,2)));
+            fprintf(my_graph,"%f\t%f\n",x,trunc(sin(1/pow(x,2))));
             printf("%f\t%f\n",x,sin(1/pow(x,2)));
         }
         }
